@@ -1,0 +1,7 @@
+streamlit==1.33.0
+pandas==1.5.3
+plotly==5.21.0
+sqlalchemy==1.4.48
+pymysql==1.1.0
+pandas-profiling==3.6.6
+pandasai==1.5.15
