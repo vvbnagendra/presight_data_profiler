@@ -430,3 +430,69 @@ At the end, declare "result" variable as a dictionary of type and value.
 Generate python code and return full updated code:
 2025-06-03 08:16:16 [INFO] Executing Step 2: CodeGenerator
 2025-06-03 08:16:16 [ERROR] Pipeline failed on step 2: OllamaLLM.call() got an unexpected keyword argument 'suffix'
+2025-06-03 18:55:40 [INFO] Question: how many records are there?
+2025-06-03 18:55:40 [INFO] Running PandasAI with ollama LLM...
+2025-06-03 18:55:40 [INFO] Prompt ID: b9321c51-f657-4550-925f-a2137b4b6ec7
+2025-06-03 18:55:40 [INFO] Executing Step 0: CacheLookup
+2025-06-03 18:55:40 [INFO] Executing Step 1: PromptGeneration
+2025-06-03 18:55:40 [INFO] Using prompt: <dataframe>
+dfs[0]:4x2
+id,name
+1,Alice
+3,Alice
+2,Bob
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+```
+
+Q: how many records are there?
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+
+
+Generate python code and return full updated code:
+2025-06-03 18:55:40 [INFO] Executing Step 2: CodeGenerator
+2025-06-03 18:57:15 [INFO] Code generated:
+            ```
+            import pandas as pd
+
+# Calculate the number of records in dfs[0]
+num_records = len(dfs[0])
+
+# Declare result var
+result = {
+    "type": "number",
+    "value": num_records
+}
+            ```
+            
+2025-06-03 18:57:15 [INFO] Executing Step 3: CachePopulation
+2025-06-03 18:57:15 [INFO] Executing Step 4: CodeExecution
+2025-06-03 18:57:15 [INFO] Saving charts to /home/nagendra/Documents/presight_data_profiler/exports/charts/temp_chart.png
+2025-06-03 18:57:15 [INFO] 
+Code running:
+```
+num_records = len(dfs[0])
+result = {'type': 'number', 'value': num_records}
+        ```
+2025-06-03 18:57:15 [INFO] Executing Step 5: ResultValidation
+2025-06-03 18:57:15 [INFO] Answer: {'type': 'number', 'value': 4}
+2025-06-03 18:57:15 [INFO] Executed in: 94.6735622882843s
+2025-06-03 18:57:15 [INFO] Executing Step 6: ResultParsing
+2025-06-03 18:58:25 [INFO] Pandas backend loaded 1.5.3
+2025-06-03 18:58:25 [INFO] Numpy backend loaded 1.25.2
+2025-06-03 18:58:25 [INFO] Pyspark backend NOT loaded
+2025-06-03 18:58:25 [INFO] Python backend loaded

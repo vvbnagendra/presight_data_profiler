@@ -10,7 +10,7 @@ class OllamaLLM(LLM):
         self.model = model
         self.base_url = base_url  # base_url should not include the /api/generate part
 
-    def call(self, instruction, context=None):
+    def call(self, instruction, context=None, **kwargs):
         # Convert instruction object (e.g. GeneratePythonCodePrompt) to string
         prompt_str = str(instruction)
 
