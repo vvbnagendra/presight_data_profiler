@@ -5,3 +5,4 @@ sqlalchemy==1.4.48
 pymysql==1.1.0
 pandas-profiling==3.6.6
 pandasai==1.5.15
+psycopg2==2.9.1
