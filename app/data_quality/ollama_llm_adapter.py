@@ -5,7 +5,7 @@ from pandasai.llm.base import LLM
 # Custom LLM Adapter for Ollama
 # -------------------------------
 class OllamaLLM(LLM):
-    def __init__(self, model="deepcoder:14b", base_url="http://localhost:11434", *args, **kwargs):
+    def __init__(self, model="deepseek-r1:1.5b", base_url="http://localhost:11434", *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.model = model
         self.base_url = base_url  # base_url should not include the /api/generate part
