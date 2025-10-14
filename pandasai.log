@@ -12661,3 +12661,348 @@ result = {'type': 'plot', 'value': 'C:/Users/LENOVO/Desktop/Python Projects/pres
 2025-07-14 23:02:02 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/LENOVO/Desktop/Python Projects/presight_data_profiler/exports/charts/temp_chart.png'}
 2025-07-14 23:02:02 [INFO] Executed in: 2.0017805099487305s
 2025-07-14 23:02:02 [INFO] Executing Step 6: ResultParsing
+2025-10-14 19:30:12 [INFO] Question: how many customers are house owners ?
+2025-10-14 19:30:15 [INFO] Running PandasAI with google LLM...
+2025-10-14 19:30:15 [INFO] Prompt ID: 993aceae-efef-49c9-b631-0b85dcf81f1d
+2025-10-14 19:30:15 [INFO] Executing Step 0: CacheLookup
+2025-10-14 19:30:15 [INFO] Executing Step 1: PromptGeneration
+2025-10-14 19:30:15 [INFO] Using prompt: <dataframe>
+dfs[0]:10000x29
+CustomerKey,GeographyKey,CustomerAlternateKey,Title,FirstName,MiddleName,LastName,NameStyle,BirthDate,MaritalStatus,Suffix,Gender,EmailAddress,YearlyIncome,TotalChildren,NumberChildrenAtHome,EnglishEducation,SpanishEducation,FrenchEducation,EnglishOccupation,SpanishOccupation,FrenchOccupation,HouseOwnerFlag,NumberCarsOwned,AddressLine1,AddressLine2,Phone,DateFirstPurchase,CommuteDistance
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+```
+
+Q: how many customers are house owners ?
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+
+
+Generate python code and return full updated code:
+2025-10-14 19:30:15 [INFO] Executing Step 2: CodeGenerator
+2025-10-14 19:30:18 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+df = dfs[0]
+
+house_owners = df['HouseOwnerFlag'].value_counts()['Y']
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+result = { "type": "number", "value": house_owners }
+            ```
+            
+2025-10-14 19:30:18 [INFO] Executing Step 3: CachePopulation
+2025-10-14 19:30:18 [INFO] Executing Step 4: CodeExecution
+2025-10-14 19:30:18 [INFO] Saving charts to C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\exports\charts\temp_chart.png
+2025-10-14 19:30:18 [INFO] 
+Code running:
+```
+df = dfs[0]
+house_owners = df['HouseOwnerFlag'].value_counts()['Y']
+result = {'type': 'number', 'value': house_owners}
+        ```
+2025-10-14 19:30:18 [WARNING] Failed to execute code with a correction framework [retry number: 1]
+2025-10-14 19:30:18 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 146, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 49, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'Y'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandasai\pipelines\smart_datalake_chat\code_execution.py", line 52, in execute
+    result = pipeline_context.query_exec_tracker.execute_func(
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandasai\helpers\query_exec_tracker.py", line 128, in execute_func
+    result = function(*args, **kwargs)
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandasai\helpers\code_manager.py", line 207, in execute_code
+    exec(code_to_run, environment)
+  File "<string>", line 2, in <module>
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandas\core\series.py", line 981, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandas\core\series.py", line 1089, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Y'
+. Retrying
+2025-10-14 19:30:18 [INFO] Using prompt: <dataframe>
+dfs[0]:10000x29
+CustomerKey,GeographyKey,CustomerAlternateKey,Title,FirstName,MiddleName,LastName,NameStyle,BirthDate,MaritalStatus,Suffix,Gender,EmailAddress,YearlyIncome,TotalChildren,NumberChildrenAtHome,EnglishEducation,SpanishEducation,FrenchEducation,EnglishOccupation,SpanishOccupation,FrenchOccupation,HouseOwnerFlag,NumberCarsOwned,AddressLine1,AddressLine2,Phone,DateFirstPurchase,CommuteDistance
+</dataframe>
+
+The user asked the following question:
+Q: how many customers are house owners ?
+
+You generated this python code:
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+df = dfs[0]
+
+house_owners = df['HouseOwnerFlag'].value_counts()['Y']
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+result = { "type": "number", "value": house_owners }
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandas\core\indexes\base.py", line 3802, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 138, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 146, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index_class_helper.pxi", line 49, in pandas._libs.index.Int64Engine._check_type
+KeyError: 'Y'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandasai\pipelines\smart_datalake_chat\code_execution.py", line 52, in execute
+    result = pipeline_context.query_exec_tracker.execute_func(
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandasai\helpers\query_exec_tracker.py", line 128, in execute_func
+    result = function(*args, **kwargs)
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandasai\helpers\code_manager.py", line 207, in execute_code
+    exec(code_to_run, environment)
+  File "<string>", line 2, in <module>
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandas\core\series.py", line 981, in __getitem__
+    return self._get_value(key)
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandas\core\series.py", line 1089, in _get_value
+    loc = self.index.get_loc(label)
+  File "C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\.venv\lib\site-packages\pandas\core\indexes\base.py", line 3804, in get_loc
+    raise KeyError(key) from err
+KeyError: 'Y'
+
+
+Fix the python code above and return the new python code:
+2025-10-14 19:30:19 [INFO] Saving charts to C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\exports\charts\temp_chart.png
+2025-10-14 19:30:19 [INFO] 
+Code running:
+```
+df = dfs[0]
+house_owners = (df['HouseOwnerFlag'] == 'Y').sum()
+result = {'type': 'number', 'value': house_owners}
+        ```
+2025-10-14 19:30:19 [INFO] Executing Step 5: ResultValidation
+2025-10-14 19:30:19 [INFO] Answer: {'type': 'number', 'value': 0}
+2025-10-14 19:30:19 [INFO] Executed in: 6.480684041976929s
+2025-10-14 19:30:19 [INFO] Executing Step 6: ResultParsing
+2025-10-14 19:31:59 [INFO] Running PandasAI with google LLM...
+2025-10-14 19:31:59 [INFO] Prompt ID: 07a60562-2d3a-4ec5-9328-2e53057750c3
+2025-10-14 19:31:59 [INFO] Executing Step 0: CacheLookup
+2025-10-14 19:31:59 [INFO] Executing Step 1: PromptGeneration
+2025-10-14 19:31:59 [INFO] Executing Step 2: CodeGenerator
+2025-10-14 19:32:00 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+df = dfs[0]
+total_customers = len(df)
+result = {
+    "type": "number",
+    "value": total_customers
+}
+            ```
+            
+2025-10-14 19:32:00 [INFO] Executing Step 3: CachePopulation
+2025-10-14 19:32:00 [INFO] Executing Step 4: CodeExecution
+2025-10-14 19:32:00 [INFO] Saving charts to C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\exports\charts\temp_chart.png
+2025-10-14 19:32:00 [INFO] 
+Code running:
+```
+df = dfs[0]
+total_customers = len(df)
+result = {'type': 'number', 'value': total_customers}
+        ```
+2025-10-14 19:32:00 [INFO] Executing Step 5: ResultValidation
+2025-10-14 19:32:00 [INFO] Answer: {'type': 'number', 'value': 10000}
+2025-10-14 19:32:00 [INFO] Executed in: 1.6028165817260742s
+2025-10-14 19:32:00 [INFO] Executing Step 6: ResultParsing
+2025-10-14 19:33:11 [INFO] Question: plot customer count by birth year
+2025-10-14 19:33:11 [INFO] Running PandasAI with google LLM...
+2025-10-14 19:33:11 [INFO] Prompt ID: 160840e0-1555-4168-b536-7a57a47114f5
+2025-10-14 19:33:11 [INFO] Executing Step 0: CacheLookup
+2025-10-14 19:33:11 [INFO] Executing Step 1: PromptGeneration
+2025-10-14 19:33:11 [INFO] Using prompt: <dataframe>
+dfs[0]:10000x29
+CustomerKey,GeographyKey,CustomerAlternateKey,Title,FirstName,MiddleName,LastName,NameStyle,BirthDate,MaritalStatus,Suffix,Gender,EmailAddress,YearlyIncome,TotalChildren,NumberChildrenAtHome,EnglishEducation,SpanishEducation,FrenchEducation,EnglishOccupation,SpanishOccupation,FrenchOccupation,HouseOwnerFlag,NumberCarsOwned,AddressLine1,AddressLine2,Phone,DateFirstPurchase,CommuteDistance
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+```
+
+Q: plot customer count by birth year
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+
+
+Generate python code and return full updated code:
+2025-10-14 19:33:11 [INFO] Executing Step 2: CodeGenerator
+2025-10-14 19:33:14 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming dfs[0] is the DataFrame you want to work with
+df = dfs[0].copy()
+
+# Convert 'BirthDate' to datetime objects
+df['BirthDate'] = pd.to_datetime(df['BirthDate'])
+
+# Extract the birth year
+df['BirthYear'] = df['BirthDate'].dt.year
+
+# Group by birth year and count the number of customers
+customer_counts_by_year = df.groupby('BirthYear')['CustomerKey'].count()
+
+# Create a bar plot
+plt.figure(figsize=(12, 6))
+customer_counts_by_year.plot(kind='bar')
+plt.title('Customer Count by Birth Year')
+plt.xlabel('Birth Year')
+plt.ylabel('Customer Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save the plot to a file
+plot_filename = "customer_count_by_birth_year.png"
+plt.savefig(plot_filename)
+plt.close()
+
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+result = { "type": "plot", "value": "customer_count_by_birth_year.png" }
+            ```
+            
+2025-10-14 19:33:14 [INFO] Executing Step 3: CachePopulation
+2025-10-14 19:33:14 [INFO] Executing Step 4: CodeExecution
+2025-10-14 19:33:14 [INFO] Saving charts to C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\exports\charts\temp_chart.png
+2025-10-14 19:33:14 [INFO] 
+Code running:
+```
+df = dfs[0].copy()
+df['BirthDate'] = pd.to_datetime(df['BirthDate'])
+df['BirthYear'] = df['BirthDate'].dt.year
+customer_counts_by_year = df.groupby('BirthYear')['CustomerKey'].count()
+plt.figure(figsize=(12, 6))
+customer_counts_by_year.plot(kind='bar')
+plt.title('Customer Count by Birth Year')
+plt.xlabel('Birth Year')
+plt.ylabel('Customer Count')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plot_filename = 'C:/Users/LENOVO/Desktop/Python Projects/for_salem/presight_data_profiler/exports/charts/temp_chart.png'
+plt.savefig(plot_filename)
+plt.close()
+result = {'type': 'plot', 'value': 'C:/Users/LENOVO/Desktop/Python Projects/for_salem/presight_data_profiler/exports/charts/temp_chart.png'}
+        ```
+2025-10-14 19:33:16 [INFO] Executing Step 5: ResultValidation
+2025-10-14 19:33:16 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/LENOVO/Desktop/Python Projects/for_salem/presight_data_profiler/exports/charts/temp_chart.png'}
+2025-10-14 19:33:16 [INFO] Executed in: 5.4095683097839355s
+2025-10-14 19:33:16 [INFO] Executing Step 6: ResultParsing
+2025-10-14 19:41:03 [INFO] Question: plot gender distribution among customers - pie chart 
+2025-10-14 19:41:03 [INFO] Running PandasAI with google LLM...
+2025-10-14 19:41:03 [INFO] Prompt ID: 8b5e929d-1bc0-4773-a6b5-73c5862d8634
+2025-10-14 19:41:03 [INFO] Executing Step 0: CacheLookup
+2025-10-14 19:41:03 [INFO] Executing Step 1: PromptGeneration
+2025-10-14 19:41:03 [INFO] Using prompt: <dataframe>
+dfs[0]:10000x29
+CustomerKey,GeographyKey,CustomerAlternateKey,Title,FirstName,MiddleName,LastName,NameStyle,BirthDate,MaritalStatus,Suffix,Gender,EmailAddress,YearlyIncome,TotalChildren,NumberChildrenAtHome,EnglishEducation,SpanishEducation,FrenchEducation,EnglishOccupation,SpanishOccupation,FrenchOccupation,HouseOwnerFlag,NumberCarsOwned,AddressLine1,AddressLine2,Phone,DateFirstPurchase,CommuteDistance
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+```
+
+Q: plot gender distribution among customers - pie chart 
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+
+
+Generate python code and return full updated code:
+2025-10-14 19:41:03 [INFO] Executing Step 2: CodeGenerator
+2025-10-14 19:41:05 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+df = dfs[0]
+
+gender_counts = df['Gender'].value_counts()
+
+plt.figure(figsize=(6,6))
+plt.pie(gender_counts, labels=gender_counts.index, autopct='%1.1f%%', startangle=90)
+plt.title('Gender Distribution of Customers')
+plt.ylabel('')
+plt.savefig("gender_distribution.png")
+
+
+# Declare result var: type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+result = { "type": "plot", "value": "gender_distribution.png" }
+            ```
+            
+2025-10-14 19:41:05 [INFO] Executing Step 3: CachePopulation
+2025-10-14 19:41:05 [INFO] Executing Step 4: CodeExecution
+2025-10-14 19:41:05 [INFO] Saving charts to C:\Users\LENOVO\Desktop\Python Projects\for_salem\presight_data_profiler\exports\charts\temp_chart.png
+2025-10-14 19:41:05 [INFO] 
+Code running:
+```
+df = dfs[0]
+gender_counts = df['Gender'].value_counts()
+plt.figure(figsize=(6, 6))
+plt.pie(gender_counts, labels=gender_counts.index, autopct='%1.1f%%', startangle=90)
+plt.title('Gender Distribution of Customers')
+plt.ylabel('')
+plt.savefig('C:/Users/LENOVO/Desktop/Python Projects/for_salem/presight_data_profiler/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/LENOVO/Desktop/Python Projects/for_salem/presight_data_profiler/exports/charts/temp_chart.png'}
+        ```
+2025-10-14 19:41:05 [INFO] Executing Step 5: ResultValidation
+2025-10-14 19:41:05 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/LENOVO/Desktop/Python Projects/for_salem/presight_data_profiler/exports/charts/temp_chart.png'}
+2025-10-14 19:41:05 [INFO] Executed in: 2.4093265533447266s
+2025-10-14 19:41:05 [INFO] Executing Step 6: ResultParsing

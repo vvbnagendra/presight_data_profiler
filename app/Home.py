@@ -33,11 +33,11 @@ st.markdown("""
         </p>
         <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
             <a href='Load_Data_CSV_or_Database' style='background: #0078d4; color: white; padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: background 0.2s;'>Get Started</a>
-            <a href='https://presight.ai/' target='_blank' style='background: #f3f9ff; color: #0078d4; padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; border: 1px solid #0078d4; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-left: 0.5rem;'>Learn More</a>
+            <a href='https://dataai.ai/' target='_blank' style='background: #f3f9ff; color: #0078d4; padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1rem; border: 1px solid #0078d4; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-left: 0.5rem;'>Learn More</a>
         </div>
     </div>
     <div style="flex: 1; text-align: center;">
-        <img src="https://s3-symbol-logo.tradingview.com/presight-ai-plc--big.svg" alt="Data Profiler" style="max-width: 220px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,120,212,0.08);">
+        <img src="https://s3-symbol-logo.tradingview.com/dataai-ai-plc--big.svg" alt="Data Profiler" style="max-width: 220px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,120,212,0.08);">
     </div>
 </div>
 """, unsafe_allow_html=True)
